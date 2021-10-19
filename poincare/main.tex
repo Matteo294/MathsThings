@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{packages}
+\usepackage{dsfont}
+
+\begin{document}
+\section*{Classical Mechanics}
+Given a vector space $V$, a semi-positive quadratic form (which we call \emph{metric} in physics) naturally gives raise to a dual vector (and the dual space). Indeed let us 
+denote by $g(\circ, \circ)$ the bilinear form associated to the quadratic form. Given two vectors $v,w \in V$ a functional $g_w$ can be defined via $g(w,v) \equiv g_w(v)$. \\ 
+Remembering that the dual space of a vector space is given by the set of linear functionals acting on the space, one has that $V^* = \{g_w | \ w \in V\}$. \\
+A bilinear form (and hence the quadratic form) is defined by its action on the basis set. For example in the euclidean space with basis $\{e_i\}_{i}$ one imposes $g(e_i, e_j) = \delta_{ij}$. \\
+One normally says that the euclidean metric components on  the cartesian basis is $\delta_{ij}$. \\
+Let us know search for which transformations leave the length of vectors unchanged with the euclidean norm. 
+In other words let us search for transformation matrices $M^{\mu}_{\nu}$ such that  given a vector $x^\nu$ the length of the vector $x'^{\mu} = M^{\mu}_\nu x^\nu$ is the same as the $x^\nu$'s one.
+\begin{equation*}
+    \delta_{\mu \nu} x^\mu x^\nu = \delta_{\alpha \beta} x'^\alpha x'^\beta = \delta_{\alpha \beta} M^\alpha_\mu M^\beta_\nu x^\mu x^\nu
+\end{equation*}
+This is satisfied iff
+\begin{equation*}
+    M^\mu_\alpha M^\nu_\beta \delta_{\alpha\beta} = M^\mu_\alpha M^\nu_\alpha = \delta_{\mu\nu}
+\end{equation*}
+which means 
+\begin{equation}
+    MM^T = \mathds{1}
+    \label{eq:euclidea_rotations}
+\end{equation}
+If one expresses $M$ as a matrix 
+\begin{equation*}
+    M = \begin{pmatrix}
+        a & b & c \\
+        d & e & f \\
+        g & h & i \\
+    \end{pmatrix}
+\end{equation*}
+and write outs the last condition in terms of the matrix elements, one gets 6 linearly independet equations that are contraints on the value of $M$. This means that any matrix that "preserves the euclidean metric" can be described by three parameters and obeys condition \ref{eq:euclidea_rotations} (i.e. it is an orthogonal matrix). \\
+The set of matrices with such a property forms a group under the matrix multiplication product and we call such a group $O(3)$ (\emph{orthogonal group}), where the 3 stands for the number of free parameters we have. \\
+Immediately from equation \ref{eq:euclidea_rotations} follows that
+\begin{equation*}
+    det(MM^T) = det(M) det(M^T) = det^2(M) = det (\mathds{1}) = 1
+\end{equation*}
+In other words one has that $det(M) = \pm 1$. This conditions split the elements of $O(3)$ into two discoconnected components (i.e. it does not exist any continuous transformation that bring a matrix with determinant 1 into one with determinant -1). The set of matrices with determinant 1 forms itself a group under the matrix multiplication, which is a subgroup
+of $O(3)$ which we call $SO(3)$ (\emph{special orthogonal group}). The other component does not constitute a subgroup since it does not contain the identity.
+\end{document}
